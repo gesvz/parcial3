@@ -1,5 +1,6 @@
 let baseUrl = "http://localhost:8080";
 let productos = [];
+let data;
 
 function ObtenerProductos() {
   fetch(baseUrl + '/productos/all')
@@ -14,6 +15,9 @@ function ObtenerProductos() {
 function ImprimirProductos() {
   let contenedor = document.getElementById("cuerpoTabla");
   contenedor.innerHTML = "";
+
+  //let checkbox = document.getElementById(i+"a");
+  //checkbox.checked = true;
 
   productos.forEach(producto => {
     contenedor.innerHTML += MapearProducto(producto);
@@ -58,6 +62,26 @@ function GuardarProducto() {
     ObtenerProductos();
   });
 }
+
+function GuardarUsuario() {
+  data = {
+    usuario: document.getElementById("usuario").value,
+    email: document.getElementById("email").value,
+    persona_id: 9
+  };
+  fetch(baseUrl + "/usuario", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-type": 'application/json; charset=UTF-8'
+    }
+  })//.then(res => {
+    //ObtenerProductos();
+  //})
+  ;
+
+}
+
 
 function PopularDatosCampos(pid) {
   let producto = productos.filter(p => { return p.id == pid })[0];

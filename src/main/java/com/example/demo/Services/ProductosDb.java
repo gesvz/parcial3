@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.demo.Models.Productos;
+import com.example.demo.Models.Usuarios;
+
 
 public class ProductosDb {
     Connection _cn;
@@ -59,6 +61,7 @@ public class ProductosDb {
                 + producto.getFechaCaducidad() + "')";
 
             resultado = stm.executeUpdate(query);
+            System.out.println("resultado: "+ resultado);
 
             return resultado;
         } catch (Exception e) {
@@ -96,6 +99,25 @@ public class ProductosDb {
             String query = "Call EliminarProducto(" + pid + ")";
 
             return stmt.executeUpdate(query);
+        } catch (Exception e) {
+            int x = 1;
+        }
+        return resultado;
+    }
+
+
+    public int GuardarUsuario(Usuarios usuario) {
+        int resultado = 0;
+        try {
+            Statement stm = _cn.createStatement();            
+
+            resultado = stm.executeUpdate("INSERT INTO usuarios (usuario, email, persona_id) "+
+             "VALUES ('"
+                    + usuario.getUsuario() + "', '" + usuario.getEmail() + "', '"
+                    + usuario.getPersona_id() +  "')");
+
+            System.out.println("resultado: "+ resultado);
+            return resultado;
         } catch (Exception e) {
             int x = 1;
         }

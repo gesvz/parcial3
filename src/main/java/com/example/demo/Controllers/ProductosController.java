@@ -14,6 +14,7 @@ import org.springframework.web.service.annotation.DeleteExchange;
 import org.springframework.web.service.annotation.PutExchange;
 
 import com.example.demo.Models.Productos;
+import com.example.demo.Models.Usuarios;
 import com.example.demo.Services.ProductosDb;
 
 @RestController
@@ -27,6 +28,11 @@ public class ProductosController {
     @PostMapping("/producto")
     public int InsertarProducto(@RequestBody Productos producto) {
         return new ProductosDb().GuardarProductos(producto);
+    }
+
+    @PostMapping("/usuario")
+    public int GuardarUsuario(@RequestBody Usuarios usuario) {
+        return new ProductosDb().GuardarUsuario(usuario);
     }
 
     @PutMapping("/producto")

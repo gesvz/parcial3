@@ -275,7 +275,7 @@ header .container div {
   width: 60%;
 }
 
-form {
+.form {
   position: relative;
   max-width: 450px;
   min-height: 400px;
@@ -285,12 +285,12 @@ form {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);/*bordes sombreados*/
 }
 
-form label {
+.form label {
   font-size: medium;
 }
 
 /*estilos para los input del form*/
-form .input {
+.form .input {
   background-color: #dfdfdf;
   border-radius: 10px;
   width: 95%;
