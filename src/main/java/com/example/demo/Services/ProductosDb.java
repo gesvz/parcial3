@@ -61,7 +61,6 @@ public class ProductosDb {
                 + producto.getFechaCaducidad() + "')";
 
             resultado = stm.executeUpdate(query);
-            System.out.println("resultado: "+ resultado);
 
             return resultado;
         } catch (Exception e) {
@@ -116,7 +115,6 @@ public class ProductosDb {
                     + usuario.getUsuario() + "', '" + usuario.getEmail() + "', '"
                     + usuario.getPersona_id() +  "')");
 
-            System.out.println("resultado: "+ resultado);
             return resultado;
         } catch (Exception e) {
             int x = 1;
